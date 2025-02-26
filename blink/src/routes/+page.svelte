@@ -283,11 +283,17 @@
 	{#if showUsername}
 		<button class="z-10 fixed flex h-screen w-screen items-center justify-center {themesCSS}"
 		on:click={() => {
-			null //cant close until username is fixed
+			 //cant close until username is fixed
 		}}>
-		<button on:click|stopPropagation>
-			<User {isMobile} bind:showUsername={showUsername} bind:persistedUsernameStore={persistedUsernameStore} bind:username={username}/>
-		</button>
+		<div on:click|stopPropagation>
+			<User 
+				{isMobile} 
+				bind:showUsername 
+				bind:persistedUsernameStore 
+				bind:username 
+			/>
+		</div>
+		
 	</button>
 	{/if}
 	{#if goAbout}
@@ -295,9 +301,9 @@
 		on:click={() => {
 			goAbout = false
 		}}>
-		<button on:click|stopPropagation>
+		<div on:click|stopPropagation>
 			<About {isMobile} />
-		</button>
+		</div>
 	</button>
 
 	{/if}
@@ -306,9 +312,9 @@
 		on:click={() => {
 			showLogin = false
 		}}>
-		<button on:click|stopPropagation>
+		<div on:click|stopPropagation>
 			<Banned {iP}/>
-		</button>
+		</div>
 	</button>
 	{/if}
 	{#if showSettings}
@@ -316,9 +322,9 @@
 		on:click={() => {
 			showSettings = false
 		}}>
-		<button on:click|stopPropagation>
+		<div on:click|stopPropagation>
 			<Settings {isMobile} bind:themeColor={themeColor} bind:themesCSS={themesCSS} bind:fontCSS={fontCSS} bind:isPrivate={isPrivate} bind:oldUI={oldUI} bind:showDate={showDate} bind:showHighlight={showHighlight} bind:showImages={showImages}/>
-		</button>
+		</div>
 	</button>	
 	{/if}
 	<!-- create board modal-->
@@ -327,9 +333,9 @@
 		on:click={() => {
 			createBoard = false
 		}}>
-		<button on:click|stopPropagation>
+		<div on:click|stopPropagation>
 			<CreateBoard {isMobile} {themesCSS} {username} bind:createBoard={createBoard} bind:boards={boards}/>
-		</button>
+		</div>
 	</button>
 	{/if}
 	<!-- join board modal -->
@@ -338,9 +344,9 @@
 		on:click={() => {
 			joinBoard = false
 		}}>
-		<button on:click|stopPropagation>
+		<div on:click|stopPropagation>
 			<JoinBoard {isMobile} {themesCSS} bind:joinBoard={joinBoard} bind:boards={boards} />
-		</button>
+		</div>
 	</button>
 	{/if}
 	{#if isDeleting}
@@ -348,9 +354,9 @@
 		on:click={() => {
 			isDeleting = false
 		}}>
-		<button on:click|stopPropagation>
+		<div on:click|stopPropagation>
 			<DeleteBoard {isMobile} {themesCSS} bind:isCreator={isCreator} bind:isDeleting={isDeleting} bind:boards={boards} bind:board={currentBoard}/>
-		</button>
+		</div>
 	</button>
 	{/if}
 	{#if !showSidebar}
